@@ -17,6 +17,7 @@ export const UPDATE_LAST_NAME = 'UPDATE_LAST_NAME'
 export const ADD_INGREDIENTS = 'ADD_INGREDIENTS'
 export const ADD_INSTRUCTIONS = 'ADD_INSTRUCTIONS'
 export const ADD_RECIPE = 'ADD_RECIPE'
+export const DELETE_RECIPE = 'DELETE_RECIPE'
 
 function reducer(state = initialState, action) {
     const {type, payload} = action;
@@ -73,6 +74,13 @@ function reducer(state = initialState, action) {
                 authorLast: '',
                 ingredients: [],
                 instructions: []
+            }
+            case DELETE_RECIPE:
+            const recipeCopy = [...state.recipes];
+            recipeCopy.splice(action.payload, 1);
+            return {
+                ...state,
+                recipes: recipeCopy
             }
         default:
             return state;
