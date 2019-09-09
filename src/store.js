@@ -65,8 +65,14 @@ function reducer(state = initialState, action) {
             }
             const newRecipe = [...state.recipes, recipe];
             return {
-                ...state, 
-                recipes: newRecipe
+                recipes: newRecipe,
+                // resets state, so fields are at initial state
+                name: '',
+                category: '',
+                authorFirst: '',
+                authorLast: '',
+                ingredients: [],
+                instructions: []
             }
         default:
             return state;

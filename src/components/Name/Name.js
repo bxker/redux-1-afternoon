@@ -12,6 +12,7 @@ class Name extends Component {
       category: reduxState.category
     };
   }
+
   handleNameChange(nameVal) {
     this.setState({
       name: nameVal
